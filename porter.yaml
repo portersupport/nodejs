@@ -1,0 +1,15 @@
+version: v1
+resources:
+- name: web
+  source:
+    name: web
+  config:
+    build:
+      method: pack
+      context: ./
+    values:
+      container:
+        command: sleep infinity
+        port: 8000
+      ingress:
+        enabled: false
