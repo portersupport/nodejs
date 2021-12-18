@@ -5,8 +5,9 @@ resources:
     name: web
   config:
     build:
-      method: pack
+      method: docker
       context: ./
+      Dockerfile: ./Dockerfile
     values:
       container:
         command: sleep infinity
