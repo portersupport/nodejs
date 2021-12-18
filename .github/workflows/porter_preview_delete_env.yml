@@ -1,0 +1,19 @@
+"on":
+  pull_request:
+    types:
+    - closed
+name: Porter Preview Environment
+jobs:
+  porter-delete-preview:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Delete Porter preview env
+      timeout-minutes: 30
+      uses: porter-dev/porter-delete-preview-action@master
+      with:
+        cluster: "3"
+        host: https://1d12-14-36-69-116.ngrok.io
+        installation_id: "21414420"
+        namespace: pr-${{ github.event.pull_request.number }}-nodejs
+        project: "1"
+        token: ${{ secrets.PORTER_TOKEN_1 }}
