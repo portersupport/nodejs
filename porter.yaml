@@ -1,0 +1,16 @@
+version: v1
+resources:
+- name: web
+  source:
+    name: web
+  config:
+    build:
+      method: docker
+      context: ./
+      Dockerfile: ./Dockerfile
+    values:
+      container:
+        command: sleep infinity
+        port: 8000
+      ingress:
+        enabled: false
